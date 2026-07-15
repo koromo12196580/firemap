@@ -1,7 +1,8 @@
 // Google Analytics 4 (gtag.js) 連携。
 // - スクリプトの読み込み・初期化はこのファイルだけで完結させ、他のコンポーネントからは
 //   trackPageView() / trackEvent() を呼ぶだけで済むようにしてある。
-// - ローカル開発中(`npm run dev`)は計測しないようにし、本番ビルドでのみ有効になる。
+// - 測定IDは "G-3FNLF9R0GJ" の1つのみ。ローカル(localhost)・本番を問わず常に計測する。
+//   (開発者自身のアクセスは、GA4管理画面側のIPアドレス除外フィルタで対応する運用のため)
 // - タブ切り替えをSPA内の「ページ遷移」とみなし、App.jsx側でタブが変わるたびに
 //   trackPageView() を呼んで訪問状況・利用状況を計測する。
 
@@ -11,7 +12,6 @@ let initialized = false;
 export function initAnalytics() {
   if (initialized) return;
   if (typeof window === "undefined" || typeof document === "undefined") return;
-  if (import.meta.env && import.meta.env.DEV) return; // 開発中(npm run dev)は計測しない
 
   if (!document.querySelector(`script[data-ga-loader="${MEASUREMENT_ID}"]`)) {
     const script = document.createElement("script");

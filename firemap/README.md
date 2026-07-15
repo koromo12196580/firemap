@@ -99,7 +99,7 @@ firemap/
 2. **ドメイン** — `index.html` / `public/robots.txt` / `public/sitemap.xml` にある `https://example.com/` を、実際に公開するドメインに置き換えてください。
 3. **ログイン** — 現在は `src/auth/authClient.js` がlocalStorageを使ったスタブ実装です。本番でSupabaseを使う場合は、このファイルの中身を `@supabase/supabase-js` の呼び出しに差し替えてください(関数のシグネチャはSupabase Authに合わせてあります)。
 4. **広告** — Google AdSenseを使う場合は `src/config/adPlacements.js` の `ADSENSE_CLIENT_ID` を設定し、該当ページの `enabled` を `true` にしてください。
-5. **アクセス解析** — Google Analytics 4(測定ID `G-3FNLF9R0GJ`)を導入済みです。`npm run dev`のローカル開発中は計測されず、`npm run build`した本番ビルド(Vercel等)でのみ有効になります。計測結果はGA4の管理画面(リアルタイムレポート等)でご確認いただけます。別のGA4プロパティに変更したい場合は `src/utils/analytics.js` の `MEASUREMENT_ID` を書き換えてください。
+5. **アクセス解析** — Google Analytics 4(測定ID `G-3FNLF9R0GJ`)を導入済みです。ローカル(`npm run dev`)・本番(Vercel等)を問わず常に計測されます。開発者ご自身のアクセスを除外したい場合は、GA4管理画面側の「内部トラフィックの除外(IPアドレスフィルタ)」で対応してください。測定IDを変更したい場合は `src/utils/analytics.js` の `MEASUREMENT_ID` を書き換えてください。
 
 ## 依存ライブラリ
 
